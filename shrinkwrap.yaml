@@ -1,19 +1,56 @@
-devDependencies:
-  '@types/es6-promise': 3.3.0
+dependencies:
+  '@pnp/common': 1.2.7
+  '@pnp/logging': 1.2.7
+  '@pnp/odata': 1.2.7
+  '@pnp/sp': 1.2.7
 packages:
-  /@types/es6-promise/3.3.0:
+  /@pnp/common/1.2.7:
     dependencies:
-      es6-promise: 4.2.5
-    deprecated: 'This is a stub types definition for es6-promise (https://github.com/jakearchibald/ES6-Promise). es6-promise provides its own type definitions, so you don''t need @types/es6-promise installed!'
-    dev: true
+      adal-angular: 1.0.17
+      tslib: 1.9.3
+    dev: false
     resolution:
-      integrity: sha512-ixCIAEkLUKv9movnHKCzx2rzAJgEnSALDXPrOSSwOjWwXFs0ssSZKan+O2e3FExPPCbX+DfA9NcKsbvLuyUlNA==
-  /es6-promise/4.2.5:
-    dev: true
+      integrity: sha512-4tja4zjAHhNZwhkcAhG8MPInFHIlspb7jz/Sk/wCbNCrobNSBGt9hoSvMBAOxYIhUinflCOWmGhk3Xw6vk8EXg==
+  /@pnp/logging/1.2.7:
+    dependencies:
+      tslib: 1.9.3
+    dev: false
     resolution:
-      integrity: sha512-n6wvpdE43VFtJq+lUDYDBFUwV8TZbuGXLV4D6wKafg13ldznKsyEvatubnmUe31zcvelSzOHF+XbaT+Bl9ObDg==
+      integrity: sha512-3OlO5o7dfP7q0bAfeZ6sHn3BBYfPM3rpw0w+aZGju84MjM7YcdLS2U5JlXMjb0eKwyA0kZOZeJNLt0l0vuGKrA==
+  /@pnp/odata/1.2.7:
+    dependencies:
+      tslib: 1.9.3
+    dev: false
+    peerDependencies:
+      '@pnp/common': 1.2.7
+      '@pnp/logging': 1.2.7
+    resolution:
+      integrity: sha512-7hgSZcC0mZd+6YaFWxT6l3QPu3HS2DknIECx/64YHEqF+0qXX6Tcg9Rtn7lsVt6kG3VXSnGnN0A5pCG6VaT5ag==
+  /@pnp/sp/1.2.7:
+    dependencies:
+      tslib: 1.9.3
+    dev: false
+    peerDependencies:
+      '@pnp/common': 1.2.7
+      '@pnp/logging': 1.2.7
+      '@pnp/odata': 1.2.7
+    resolution:
+      integrity: sha512-shhqPNYBRV7jEO1TLtRzGk/Czd43WFJTqH19Gll2dt9MmTUzLj7Pyc9ioEsSXp6GdjtQ0Qz9e2hVX9UZboLxJQ==
+  /adal-angular/1.0.17:
+    dev: false
+    engines:
+      node: '>=0.8.0'
+    resolution:
+      integrity: sha1-bpNuDkH5HTsqiOf/ypwvb29WLMQ=
+  /tslib/1.9.3:
+    dev: false
+    resolution:
+      integrity: sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
-  '@types/es6-promise': ^3.3.0
+  '@pnp/common': ^1.2.7
+  '@pnp/logging': ^1.2.7
+  '@pnp/odata': ^1.2.7
+  '@pnp/sp': ^1.2.7

@@ -35,26 +35,33 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var sp_1 = require("@pnp/sp");
 var HubSiteService = /** @class */ (function () {
     function HubSiteService() {
     }
     HubSiteService.prototype.GetHubSiteById = function (webUrl, id) {
         return __awaiter(this, void 0, void 0, function () {
-            var response, json;
+            var response, SiteUrl, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, fetch(webUrl + "/_api/HubSites/GetById('" + id + "')", {
-                            method: 'GET',
-                            headers: {
-                                Accept: 'application/json;odata=nometadata'
-                            },
-                        })];
+                    case 0:
+                        _a.trys.push([0, 3, , 4]);
+                        return [4 /*yield*/, fetch(webUrl + "/_api/HubSites/GetById('" + id + "')", {
+                                method: 'GET',
+                                headers: {
+                                    Accept: 'application/json;odata=nometadata'
+                                },
+                            })];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.json()];
                     case 2:
-                        json = _a.sent();
-                        return [2 /*return*/, json];
+                        SiteUrl = (_a.sent()).SiteUrl;
+                        return [2 /*return*/, { url: SiteUrl, web: new sp_1.Web(SiteUrl) }];
+                    case 3:
+                        err_1 = _a.sent();
+                        throw err_1;
+                    case 4: return [2 /*return*/];
                 }
             });
         });

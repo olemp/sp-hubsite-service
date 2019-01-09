@@ -1,13 +1,24 @@
+import { Web } from '@pnp/sp';
+
+export interface IHubSite {
+    url: string;
+    web: Web;
+}
+
 export class HubSiteService {
-    public async GetHubSiteById(webUrl: string, id: string): Promise<any> {
-        const response: Response = await fetch(`${webUrl}/_api/HubSites/GetById('${id}')`, {
-            method: 'GET',
-            headers: {
-                Accept: 'application/json;odata=nometadata'
-            },
-        });
-        const json: any = await response.json();
-        return json;
+    public async GetHubSiteById(webUrl: string, id: string): Promise<IHubSite> {
+        try {
+            const response = await fetch(`${webUrl}/_api/HubSites/GetById('${id}')`, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json;odata=nometadata'
+                },
+            });
+            const { SiteUrl } = await response.json();
+            return { url: SiteUrl, web: new Web(SiteUrl) };
+        } catch (err) {
+            throw err;
+        }
     }
 }
 

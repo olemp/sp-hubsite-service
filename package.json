@@ -11,5 +11,10 @@
   },
   "author": "",
   "license": "MIT",
-  "devDependencies": {}
+  "dependencies": {
+    "@pnp/common": "^1.2.7",
+    "@pnp/logging": "^1.2.7",
+    "@pnp/odata": "^1.2.7",
+    "@pnp/sp": "^1.2.7"
+  }
 }

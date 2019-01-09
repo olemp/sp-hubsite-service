@@ -1,0 +1,19 @@
+devDependencies:
+  '@types/es6-promise': 3.3.0
+packages:
+  /@types/es6-promise/3.3.0:
+    dependencies:
+      es6-promise: 4.2.5
+    deprecated: 'This is a stub types definition for es6-promise (https://github.com/jakearchibald/ES6-Promise). es6-promise provides its own type definitions, so you don''t need @types/es6-promise installed!'
+    dev: true
+    resolution:
+      integrity: sha512-ixCIAEkLUKv9movnHKCzx2rzAJgEnSALDXPrOSSwOjWwXFs0ssSZKan+O2e3FExPPCbX+DfA9NcKsbvLuyUlNA==
+  /es6-promise/4.2.5:
+    dev: true
+    resolution:
+      integrity: sha512-n6wvpdE43VFtJq+lUDYDBFUwV8TZbuGXLV4D6wKafg13ldznKsyEvatubnmUe31zcvelSzOHF+XbaT+Bl9ObDg==
+registry: 'https://registry.npmjs.org/'
+shrinkwrapMinorVersion: 9
+shrinkwrapVersion: 3
+specifiers:
+  '@types/es6-promise': ^3.3.0

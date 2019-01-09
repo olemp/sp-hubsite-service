@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "declaration": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "typeRoots": [],
+    "types": [],
+    "lib": [
+      "es2015",
+      "es5",
+      "dom",
+      "es2015.collection"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "sp-hubsite-service",
+  "version": "0.0.4",
+  "description": "",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc --watch",
+    "postversion": "tsc --build && npm publish"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {}
+}

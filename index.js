@@ -51,6 +51,7 @@ var HubSiteService = /** @class */ (function () {
                                 headers: {
                                     Accept: 'application/json;odata=nometadata'
                                 },
+                                credentials: 'include',
                             })];
                     case 1:
                         response = _a.sent();

@@ -6,6 +6,7 @@ export interface IHubSite {
 }
 
 export class HubSiteService {
+
     public async GetHubSiteById(webUrl: string, id: string): Promise<IHubSite> {
         try {
             const response = await fetch(`${webUrl}/_api/HubSites/GetById('${id}')`, {
@@ -13,6 +14,7 @@ export class HubSiteService {
                 headers: {
                     Accept: 'application/json;odata=nometadata'
                 },
+                credentials: 'include',
             });
             const { SiteUrl } = await response.json();
             return { url: SiteUrl, web: new Web(SiteUrl) };

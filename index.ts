@@ -1,4 +1,5 @@
 import { Web } from '@pnp/sp';
+import { PageContext } from '@microsoft/sp-page-context';
 
 export interface IHubSite {
     url: string;
@@ -6,10 +7,9 @@ export interface IHubSite {
 }
 
 export class HubSiteService {
-
-    public async GetHubSiteById(webUrl: string, id: string): Promise<IHubSite> {
+    public async GetHubSite(pageContext: PageContext): Promise<IHubSite> {
         try {
-            const response = await fetch(`${webUrl}/_api/HubSites/GetById('${id}')`, {
+            const response = await fetch(`${pageContext.web.absoluteUrl}/_api/HubSites/GetById('${pageContext.legacyPageContext.hubSiteId}')`, {
                 method: 'GET',
                 headers: { Accept: 'application/json;odata=nometadata' },
                 credentials: 'include',

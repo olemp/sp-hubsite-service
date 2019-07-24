@@ -48,9 +48,7 @@ var HubSiteService = /** @class */ (function () {
                         _a.trys.push([0, 3, , 4]);
                         return [4 /*yield*/, fetch(webUrl + "/_api/HubSites/GetById('" + id + "')", {
                                 method: 'GET',
-                                headers: {
-                                    Accept: 'application/json;odata=nometadata'
-                                },
+                                headers: { Accept: 'application/json;odata=nometadata' },
                                 credentials: 'include',
                             })];
                     case 1:

@@ -39,14 +39,14 @@ var sp_1 = require("@pnp/sp");
 var HubSiteService = /** @class */ (function () {
     function HubSiteService() {
     }
-    HubSiteService.prototype.GetHubSiteById = function (webUrl, id) {
+    HubSiteService.prototype.GetHubSite = function (pageContext) {
         return __awaiter(this, void 0, void 0, function () {
             var response, SiteUrl, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, fetch(webUrl + "/_api/HubSites/GetById('" + id + "')", {
+                        return [4 /*yield*/, fetch(pageContext.web.absoluteUrl + "/_api/HubSites/GetById('" + pageContext.legacyPageContext.hubSiteId + "')", {
                                 method: 'GET',
                                 headers: { Accept: 'application/json;odata=nometadata' },
                                 credentials: 'include',

@@ -11,9 +11,7 @@ export class HubSiteService {
         try {
             const response = await fetch(`${webUrl}/_api/HubSites/GetById('${id}')`, {
                 method: 'GET',
-                headers: {
-                    Accept: 'application/json;odata=nometadata'
-                },
+                headers: { Accept: 'application/json;odata=nometadata' },
                 credentials: 'include',
             });
             const { SiteUrl } = await response.json();

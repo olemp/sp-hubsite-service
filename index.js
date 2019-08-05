@@ -36,31 +36,49 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var sp_1 = require("@pnp/sp");
+var common_1 = require("@pnp/common");
 var HubSiteService = /** @class */ (function () {
     function HubSiteService() {
+        this.storage = new common_1.PnPClientStorage();
     }
-    HubSiteService.prototype.GetHubSite = function (pageContext) {
+    /**
+     * Get hub site
+     *
+     * @param {SPRest} sp Sp
+     * @param {PageContext} pageContext Page context
+     * @param {Date} expire Expire
+     */
+    HubSiteService.prototype.GetHubSite = function (sp, pageContext, expire) {
+        if (expire === void 0) { expire = common_1.dateAdd(new Date(), 'year', 1); }
         return __awaiter(this, void 0, void 0, function () {
-            var response, SiteUrl, err_1;
+            var hubSiteId_1, url, err_1;
+            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, fetch(pageContext.web.absoluteUrl + "/_api/HubSites/GetById('" + pageContext.legacyPageContext.hubSiteId + "')", {
-                                method: 'GET',
-                                headers: { Accept: 'application/json;odata=nometadata' },
-                                credentials: 'include',
-                            })];
+                        _a.trys.push([0, 2, , 3]);
+                        hubSiteId_1 = pageContext.legacyPageContext.hubSiteId;
+                        return [4 /*yield*/, this.storage.local.getOrPut("hubsite_" + hubSiteId_1.replace(/-/g, '') + "_url", function () { return __awaiter(_this, void 0, void 0, function () {
+                                var PrimarySearchResults;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0: return [4 /*yield*/, sp.search({
+                                                Querytext: "SiteId:" + hubSiteId_1 + " contentclass:STS_Site",
+                                                SelectProperties: ['Path'],
+                                            })];
+                                        case 1:
+                                            PrimarySearchResults = (_a.sent()).PrimarySearchResults;
+                                            return [2 /*return*/, PrimarySearchResults[0].Path];
+                                    }
+                                });
+                            }); }, expire)];
                     case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.json()];
+                        url = _a.sent();
+                        return [2 /*return*/, ({ url: url, web: new sp_1.Web(url) })];
                     case 2:
-                        SiteUrl = (_a.sent()).SiteUrl;
-                        return [2 /*return*/, { url: SiteUrl, web: new sp_1.Web(SiteUrl) }];
-                    case 3:
                         err_1 = _a.sent();
                         throw err_1;
-                    case 4: return [2 /*return*/];
+                    case 3: return [2 /*return*/];
                 }
             });
         });

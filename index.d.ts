@@ -1,11 +1,18 @@
-import { Web } from '@pnp/sp';
+import { SPRest } from '@pnp/sp';
 import { PageContext } from '@microsoft/sp-page-context';
-export interface IHubSite {
-    url: string;
-    web: Web;
-}
+import { IHubSite } from './IHubSite';
 export declare class HubSiteService {
-    GetHubSite(pageContext: PageContext): Promise<IHubSite>;
+    private storage;
+    constructor();
+    /**
+     * Get hub site
+     *
+     * @param {SPRest} sp Sp
+     * @param {PageContext} pageContext Page context
+     * @param {Date} expire Expire
+     */
+    GetHubSite(sp: SPRest, pageContext: PageContext, expire?: Date): Promise<IHubSite>;
 }
+export { IHubSite };
 declare const _default: HubSiteService;
 export default _default;

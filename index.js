@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var sp_1 = require("@pnp/sp");
 var common_1 = require("@pnp/common");
-var HubSiteService = /** @class */ (function () {
+exports.default = new /** @class */ (function () {
     function HubSiteService() {
         this.storage = new common_1.PnPClientStorage();
     }
@@ -102,6 +102,4 @@ var HubSiteService = /** @class */ (function () {
     };
     return HubSiteService;
 }());
-exports.HubSiteService = HubSiteService;
-exports.default = new HubSiteService();
 //# sourceMappingURL=index.js.map

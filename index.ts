@@ -3,7 +3,7 @@ import { PageContext } from '@microsoft/sp-page-context';
 import { PnPClientStorage, dateAdd } from '@pnp/common';
 import { IHubSite } from './IHubSite';
 
-export class HubSiteService {
+export default new class HubSiteService {
     private storage: PnPClientStorage;
 
     constructor() {
@@ -44,4 +44,3 @@ export class HubSiteService {
 }
 
 export { IHubSite };
-export default new HubSiteService();

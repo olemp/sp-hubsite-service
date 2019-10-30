@@ -1,0 +1,179 @@
+dependencies:
+  '@microsoft/sp-page-context': 1.9.1
+  '@pnp/common': 1.3.6
+  '@pnp/logging': 1.3.6
+  '@pnp/odata': 1.3.6_6795127a97b2dcfc80caadca5f95a675
+  '@pnp/sp': 1.3.6_ce6f99bf485505b6b53ec3a222a696d5
+lockfileVersion: 5.1
+packages:
+  /@microsoft/sp-core-library/1.9.1:
+    dependencies:
+      '@microsoft/sp-lodash-subset': 1.9.1
+      '@microsoft/sp-module-interfaces': 1.9.1
+      '@types/es6-promise': 0.0.33
+      '@types/webpack-env': 1.13.1
+    dev: false
+    resolution:
+      integrity: sha512-mXmrZhyuA0NymTAC6HSUiMGFLni9OSlKfJGWKt02EyuFbQ3U4v4UnmvZgvnQZs9ZHBc7KrKInxRaYCjHrv2ITg==
+  /@microsoft/sp-diagnostics/1.9.1:
+    dependencies:
+      '@microsoft/sp-core-library': 1.9.1
+      '@microsoft/sp-lodash-subset': 1.9.1
+    dev: false
+    resolution:
+      integrity: sha512-Ggnszpej/zPfCeGCwzBg/pFvsNxq4/cGDc0J3cGQJknAv/5cldSefT6SqPDD7qELpXw/sTfq+Zy5pyGxQDvcVw==
+  /@microsoft/sp-dynamic-data/1.9.1:
+    dependencies:
+      '@microsoft/sp-core-library': 1.9.1
+      '@microsoft/sp-diagnostics': 1.9.1
+      '@microsoft/sp-lodash-subset': 1.9.1
+      '@microsoft/sp-module-interfaces': 1.9.1
+      '@types/webpack-env': 1.13.1
+      tslib: 1.9.3
+    dev: false
+    resolution:
+      integrity: sha512-NVHhesEQ/qUpJOr54SMJtIrRdVs+dJVT9eSo4ntsJF1N2o23FMvH7IHLym9e+tGK0XqA6c/f3SWq+ujVRDfLMQ==
+  /@microsoft/sp-lodash-subset/1.9.1:
+    dependencies:
+      '@types/lodash': 4.14.117
+      '@types/webpack-env': 1.13.1
+      tslib: 1.9.3
+    dev: false
+    resolution:
+      integrity: sha512-bHYp2vyKfB/TYmCClUw9SCvJ7EYGeJOx8bxIm1hBlYzNBtIQvotTfdFBNz6vYEAXczMQHZkO9vToEd5jSturEA==
+  /@microsoft/sp-module-interfaces/1.9.1:
+    dependencies:
+      '@types/node': 8.5.8
+      '@types/z-schema': 3.16.31
+      z-schema: 3.18.4
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-c9ihRbxq3zOv1hU76BNFlB1i2ZOTidgPmoz5BRHogSarcTC6NxnB+4pP8ulSvvV5NiNZLFZrNNF5WXg1wbGIqA==
+  /@microsoft/sp-odata-types/1.9.1:
+    dependencies:
+      tslib: 1.9.3
+    dev: false
+    resolution:
+      integrity: sha512-Gy3Ke4MQv1gQxhAlAgp9aWZ9R3nCKr7uZ67186BZit0sSqFmmv3XWGUMS3DCKQo3+piQWCoZPU8XvmyBmAo9+w==
+  /@microsoft/sp-page-context/1.9.1:
+    dependencies:
+      '@microsoft/sp-core-library': 1.9.1
+      '@microsoft/sp-diagnostics': 1.9.1
+      '@microsoft/sp-dynamic-data': 1.9.1
+      '@microsoft/sp-lodash-subset': 1.9.1
+      '@microsoft/sp-odata-types': 1.9.1
+      '@types/es6-promise': 0.0.33
+      '@types/webpack-env': 1.13.1
+      tslib: 1.9.3
+    dev: false
+    resolution:
+      integrity: sha512-eFFbUxcGhjtS4CD57fzphNDqRgLbY2SHY9zsjfDYRiiAqOxrKGC2XklLbS6zCEb4xXOCZAPyPDHYmR8tLRAE2g==
+  /@pnp/common/1.3.6:
+    dependencies:
+      adal-angular: 1.0.17
+      tslib: 1.10.0
+    dev: false
+    resolution:
+      integrity: sha512-o81CC685vdcwTbLkNe89y2pc3xqyq0dMqhI5F0dJhZE0D7NNhyYAPhVjpS+yRLwALDgMTMpkghKAOCrtHGXcOw==
+  /@pnp/logging/1.3.6:
+    dependencies:
+      tslib: 1.10.0
+    dev: false
+    resolution:
+      integrity: sha512-LM/WYAd4YjhBub4C6PkNKc1r1F+lqr6lSTYokTOg4srJsvcyhXiJ++cB80YrOEqDvifbzR9WZWWm480+IzD9cA==
+  /@pnp/odata/1.3.6_6795127a97b2dcfc80caadca5f95a675:
+    dependencies:
+      '@pnp/common': 1.3.6
+      '@pnp/logging': 1.3.6
+      tslib: 1.10.0
+    dev: false
+    peerDependencies:
+      '@pnp/common': 1.3.6
+      '@pnp/logging': 1.3.6
+    resolution:
+      integrity: sha512-5WM8GQQ3C+wOzBXFcEZKZM9P1G4tWu+aL0CXuk6tTSs8rojs73hXB7QyOWA+HSF72iXyBdPaaaJ47js9Q+nD1g==
+  /@pnp/sp/1.3.6_ce6f99bf485505b6b53ec3a222a696d5:
+    dependencies:
+      '@pnp/common': 1.3.6
+      '@pnp/logging': 1.3.6
+      '@pnp/odata': 1.3.6_6795127a97b2dcfc80caadca5f95a675
+      tslib: 1.10.0
+    dev: false
+    peerDependencies:
+      '@pnp/common': 1.3.6
+      '@pnp/logging': 1.3.6
+      '@pnp/odata': 1.3.6
+    resolution:
+      integrity: sha512-JGFefu/r0Y9UcG5Vah7cK0VoH/o/9MnoAGZLb3gYbUSAxaqlOuz1QaD5WT9BLJhKCwqa4yeiS1T2rJceJzBI0w==
+  /@types/es6-promise/0.0.33:
+    dev: false
+    resolution:
+      integrity: sha512-HKJFVLCGrWQ/1unEw8JdaTxu6n3EUxmwTxJ6D0O1x0gD8joCsgoTWxEgevb7fp2XIogNjof3KEd+3bJoGne/nw==
+  /@types/lodash/4.14.117:
+    dev: false
+    resolution:
+      integrity: sha512-xyf2m6tRbz8qQKcxYZa7PA4SllYcay+eh25DN3jmNYY6gSTL7Htc/bttVdkqj2wfJGbeWlQiX8pIyJpKU+tubw==
+  /@types/node/8.5.8:
+    dev: false
+    resolution:
+      integrity: sha512-8KmlRxwbKZfjUHFIt3q8TF5S2B+/E5BaAoo/3mgc5h6FJzqxXkCK/VMetO+IRDtwtU6HUvovHMBn+XRj7SV9Qg==
+  /@types/webpack-env/1.13.1:
+    dev: false
+    resolution:
+      integrity: sha512-oHyg0NssP2RCpCvE35hhbSqMJRsc5lSW+GFe+Vc65JL+kHII1VMYM+0KeV/z4utFuUqPoQRmq8KMMp7ba0dj6Q==
+  /@types/z-schema/3.16.31:
+    dev: false
+    resolution:
+      integrity: sha1-LrHQCl5Ow/pYx2r94S4YK2bcXBw=
+  /adal-angular/1.0.17:
+    dev: false
+    engines:
+      node: '>=0.8.0'
+    resolution:
+      integrity: sha1-bpNuDkH5HTsqiOf/ypwvb29WLMQ=
+  /commander/2.20.3:
+    dev: false
+    optional: true
+    resolution:
+      integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+  /lodash.get/4.4.2:
+    dev: false
+    resolution:
+      integrity: sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+  /lodash.isequal/4.5.0:
+    dev: false
+    resolution:
+      integrity: sha1-QVxEePK8wwEgwizhDtMib30+GOA=
+  /tslib/1.10.0:
+    dev: false
+    resolution:
+      integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+  /tslib/1.9.3:
+    dev: false
+    resolution:
+      integrity: sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
+  /validator/8.2.0:
+    dev: false
+    engines:
+      node: '>= 0.10'
+    resolution:
+      integrity: sha512-Yw5wW34fSv5spzTXNkokD6S6/Oq92d8q/t14TqsS3fAiA1RYnxSFSIZ+CY3n6PGGRCq5HhJTSepQvFUS2QUDxA==
+  /z-schema/3.18.4:
+    dependencies:
+      lodash.get: 4.4.2
+      lodash.isequal: 4.5.0
+      validator: 8.2.0
+    dev: false
+    hasBin: true
+    optionalDependencies:
+      commander: 2.20.3
+    resolution:
+      integrity: sha512-DUOKC/IhbkdLKKiV89gw9DUauTV8U/8yJl1sjf6MtDmzevLKOF2duNJ495S3MFVjqZarr+qNGCPbkg4mu4PpLw==
+specifiers:
+  '@microsoft/sp-page-context': 1.9.1
+  '@pnp/common': 1.3.6
+  '@pnp/logging': 1.3.6
+  '@pnp/odata': 1.3.6
+  '@pnp/sp': 1.3.6

@@ -18,7 +18,7 @@ export class HubSiteService {
      */
     public async GetHubSite(sp: SPRest, pageContext: PageContext, expire: Date = dateAdd(new Date(), 'year', 1)): Promise<IHubSite> {
         try {
-            const { hubSiteId } = pageContext.legacyPageContext;
+            let hubSiteId = pageContext.legacyPageContext.hubSiteId || '';
             try {
                 const { SiteUrl } = await (await fetch(`${pageContext.web.absoluteUrl}/_api/HubSites/GetById('${hubSiteId}')`, {
                     method: 'GET',

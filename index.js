@@ -57,7 +57,7 @@ var HubSiteService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 7, , 8]);
-                        hubSiteId_1 = pageContext.legacyPageContext.hubSiteId;
+                        hubSiteId_1 = pageContext.legacyPageContext.hubSiteId || '';
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 4, , 5]);

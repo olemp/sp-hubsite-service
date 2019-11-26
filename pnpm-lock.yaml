@@ -1,9 +1,9 @@
 dependencies:
   '@microsoft/sp-page-context': 1.9.1
-  '@pnp/common': 1.3.6
-  '@pnp/logging': 1.3.6
-  '@pnp/odata': 1.3.6_6795127a97b2dcfc80caadca5f95a675
-  '@pnp/sp': 1.3.6_ce6f99bf485505b6b53ec3a222a696d5
+  '@pnp/common': 1.3.7
+  '@pnp/logging': 1.3.7
+  '@pnp/odata': 1.3.7_2522a320aab42093afea469c492b4b4f
+  '@pnp/sp': 1.3.7_d9c0b0ddb647151ddcd5389b095b3b0d
 lockfileVersion: 5.1
 packages:
   /@microsoft/sp-core-library/1.9.1:
@@ -70,43 +70,43 @@ packages:
     dev: false
     resolution:
       integrity: sha512-eFFbUxcGhjtS4CD57fzphNDqRgLbY2SHY9zsjfDYRiiAqOxrKGC2XklLbS6zCEb4xXOCZAPyPDHYmR8tLRAE2g==
-  /@pnp/common/1.3.6:
+  /@pnp/common/1.3.7:
     dependencies:
       adal-angular: 1.0.17
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-o81CC685vdcwTbLkNe89y2pc3xqyq0dMqhI5F0dJhZE0D7NNhyYAPhVjpS+yRLwALDgMTMpkghKAOCrtHGXcOw==
-  /@pnp/logging/1.3.6:
+      integrity: sha512-0yWxtGX7eTAT5WEVBfxHNXDi25OinGaAh8ZJ0RdEWs6HtiaPmSdu27CtnMPysQjnHUX1ykMDOVV4XP7g+TmOmw==
+  /@pnp/logging/1.3.7:
     dependencies:
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-LM/WYAd4YjhBub4C6PkNKc1r1F+lqr6lSTYokTOg4srJsvcyhXiJ++cB80YrOEqDvifbzR9WZWWm480+IzD9cA==
-  /@pnp/odata/1.3.6_6795127a97b2dcfc80caadca5f95a675:
+      integrity: sha512-NjJHXili095wTc7g2lThkiU0djVoInplR0Dp6yPnOjlz53wDAgnfyswm0zV/1ZsYb7a8sZhQpf8KT3g0Zgp/+g==
+  /@pnp/odata/1.3.7_2522a320aab42093afea469c492b4b4f:
     dependencies:
-      '@pnp/common': 1.3.6
-      '@pnp/logging': 1.3.6
-      tslib: 1.10.0
-    dev: false
-    peerDependencies:
-      '@pnp/common': 1.3.6
-      '@pnp/logging': 1.3.6
-    resolution:
-      integrity: sha512-5WM8GQQ3C+wOzBXFcEZKZM9P1G4tWu+aL0CXuk6tTSs8rojs73hXB7QyOWA+HSF72iXyBdPaaaJ47js9Q+nD1g==
-  /@pnp/sp/1.3.6_ce6f99bf485505b6b53ec3a222a696d5:
-    dependencies:
-      '@pnp/common': 1.3.6
-      '@pnp/logging': 1.3.6
-      '@pnp/odata': 1.3.6_6795127a97b2dcfc80caadca5f95a675
+      '@pnp/common': 1.3.7
+      '@pnp/logging': 1.3.7
       tslib: 1.10.0
     dev: false
     peerDependencies:
-      '@pnp/common': 1.3.6
-      '@pnp/logging': 1.3.6
-      '@pnp/odata': 1.3.6
+      '@pnp/common': 1.3.7
+      '@pnp/logging': 1.3.7
     resolution:
-      integrity: sha512-JGFefu/r0Y9UcG5Vah7cK0VoH/o/9MnoAGZLb3gYbUSAxaqlOuz1QaD5WT9BLJhKCwqa4yeiS1T2rJceJzBI0w==
+      integrity: sha512-W+43kOSiGkHlNVN3whe09ZxLDN0LBvzvJDjInmQGPWwYeOjk2/OY1x5/cpoA5g8tBz+HtZxPzR16IWWsNZ+4Bw==
+  /@pnp/sp/1.3.7_d9c0b0ddb647151ddcd5389b095b3b0d:
+    dependencies:
+      '@pnp/common': 1.3.7
+      '@pnp/logging': 1.3.7
+      '@pnp/odata': 1.3.7_2522a320aab42093afea469c492b4b4f
+      tslib: 1.10.0
+    dev: false
+    peerDependencies:
+      '@pnp/common': 1.3.7
+      '@pnp/logging': 1.3.7
+      '@pnp/odata': 1.3.7
+    resolution:
+      integrity: sha512-+O4gk0dRfwuegzD/5yXJJLqUCYlstz0qfDBL65s6unF4ANwukgwL0HVbroUsFXeZEHyC2xwAuVvpMWAgF6qQ4w==
   /@types/es6-promise/0.0.33:
     dev: false
     resolution:
@@ -173,7 +173,7 @@ packages:
       integrity: sha512-DUOKC/IhbkdLKKiV89gw9DUauTV8U/8yJl1sjf6MtDmzevLKOF2duNJ495S3MFVjqZarr+qNGCPbkg4mu4PpLw==
 specifiers:
   '@microsoft/sp-page-context': 1.9.1
-  '@pnp/common': 1.3.6
-  '@pnp/logging': 1.3.6
-  '@pnp/odata': 1.3.6
-  '@pnp/sp': 1.3.6
+  '@pnp/common': 1.3.7
+  '@pnp/logging': 1.3.7
+  '@pnp/odata': 1.3.7
+  '@pnp/sp': 1.3.7

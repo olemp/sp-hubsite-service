@@ -13,9 +13,9 @@
   "license": "MIT",
   "dependencies": {
     "@microsoft/sp-page-context": "1.9.1",
-    "@pnp/common": "1.3.6",
-    "@pnp/logging": "1.3.6",
-    "@pnp/odata": "1.3.6",
-    "@pnp/sp": "1.3.6"
+    "@pnp/common": "1.3.7",
+    "@pnp/logging": "1.3.7",
+    "@pnp/odata": "1.3.7",
+    "@pnp/sp": "1.3.7"
   }
 }

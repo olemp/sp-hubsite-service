@@ -1,13 +1,13 @@
-import { SPRest, Web } from '@pnp/sp';
-import { PageContext } from '@microsoft/sp-page-context';
-import { PnPClientStorage, dateAdd } from '@pnp/common';
-import { IHubSite } from './IHubSite';
+import { SPRest, Web } from '@pnp/sp'
+import { PageContext } from '@microsoft/sp-page-context'
+import { PnPClientStorage, dateAdd } from '@pnp/common'
+import { IHubSite } from './IHubSite'
 
 export default new class HubSiteService {
-    private storage: PnPClientStorage;
+    private storage: PnPClientStorage
 
     constructor() {
-        this.storage = new PnPClientStorage();
+        this.storage = new PnPClientStorage()
     }
     /**
      * Get hub site
@@ -18,29 +18,29 @@ export default new class HubSiteService {
      */
     public async GetHubSite(sp: SPRest, pageContext: PageContext, expire: Date = dateAdd(new Date(), 'year', 1)): Promise<IHubSite> {
         try {
-            let hubSiteId = pageContext.legacyPageContext.hubSiteId || '';
+            const hubSiteId = pageContext.legacyPageContext.hubSiteId || ''
             try {
                 const { SiteUrl } = await (await fetch(`${pageContext.web.absoluteUrl}/_api/HubSites/GetById('${hubSiteId}')`, {
                     method: 'GET',
                     headers: {
-                        Accept: 'application/json;odata=nometadata'
+                        Accept: 'application/jsonodata=nometadata'
                     },
                     credentials: 'include',
-                })).json();
-                return ({ url: SiteUrl, web: new Web(SiteUrl) });
+                })).json()
+                return ({ url: SiteUrl, web: new Web(SiteUrl) })
             } catch (error) { }
-            let url = await this.storage.local.getOrPut(`hubsite_${hubSiteId.replace(/-/g, '')}_url`, async () => {
+            const url = await this.storage.local.getOrPut(`hubsite_${hubSiteId.replace(/-/g, '')}_url`, async () => {
                 let { PrimarySearchResults } = await sp.search({
                     Querytext: `SiteId:${hubSiteId} contentclass:STS_Site`,
                     SelectProperties: ['Path'],
-                });
-                return PrimarySearchResults[0] ? PrimarySearchResults[0].Path : '';
-            }, expire);
-            return ({ url, web: new Web(url) });
+                })
+                return PrimarySearchResults[0] ? PrimarySearchResults[0].Path : ''
+            }, expire)
+            return ({ url, web: new Web(url) })
         } catch (err) {
-            throw err;
+            throw err
         }
     }
 }
 
-export { IHubSite };
+export { IHubSite }

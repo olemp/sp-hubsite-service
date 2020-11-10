@@ -64,7 +64,7 @@ exports.default = new /** @class */ (function () {
                         return [4 /*yield*/, fetch(pageContext.web.absoluteUrl + "/_api/HubSites/GetById('" + hubSiteId_1 + "')", {
                                 method: 'GET',
                                 headers: {
-                                    Accept: 'application/json;odata=nometadata'
+                                    Accept: 'application/jsonodata=nometadata'
                                 },
                                 credentials: 'include',
                             })];

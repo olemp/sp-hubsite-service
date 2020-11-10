@@ -5,7 +5,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build",
     "watch": "tsc --watch",
     "postversion": "tsc --build && npm publish"
   },
@@ -17,5 +17,8 @@
     "@pnp/logging": "1.3.7",
     "@pnp/odata": "1.3.7",
     "@pnp/sp": "1.3.7"
+  },
+  "devDependencies": {
+    "typescript": "3.3.4000"
   }
 }

@@ -4,7 +4,7 @@ import { PnPClientStorage, dateAdd } from '@pnp/common'
 import { IHubSite } from './IHubSite'
 
 export default new class HubSiteService {
-    private storage: PnPClientStorage
+    storage: PnPClientStorage
 
     constructor() {
         this.storage = new PnPClientStorage()

@@ -1,6 +1,6 @@
 import { dateAdd, PnPClientStorage } from '@pnp/core'
 import { spfi, SPFx } from '@pnp/sp'
-import { IHubSite } from './IHubSite'
+import { IHubSite } from './types'
 import '@pnp/sp/search'
 
 export default new class HubSiteService {

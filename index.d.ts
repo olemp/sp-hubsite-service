@@ -1,5 +1,5 @@
 import { PnPClientStorage } from '@pnp/core';
-import { IHubSite } from './IHubSite';
+import { IHubSite } from './types';
 import '@pnp/sp/search';
 declare const _default: {
     storage: PnPClientStorage;

@@ -36,11 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IHubSite = void 0;
 var core_1 = require("@pnp/core");
 var sp_1 = require("@pnp/sp");
-var IHubSite_1 = require("./IHubSite");
-Object.defineProperty(exports, "IHubSite", { enumerable: true, get: function () { return IHubSite_1.IHubSite; } });
 require("@pnp/sp/search");
 exports.default = new /** @class */ (function () {
     function HubSiteService() {

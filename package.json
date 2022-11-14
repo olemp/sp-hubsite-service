@@ -1,13 +1,13 @@
 {
   "name": "sp-hubsite-service",
-  "version": "0.9.3",
+  "version": "0.10.0",
   "description": "",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "build": "tsc --build",
     "watch": "tsc --watch",
-    "postversion": "tsc --build && npm publish"
+    "postversion": "npm install && tsc --build && npm publish"
   },
   "author": "",
   "license": "MIT",

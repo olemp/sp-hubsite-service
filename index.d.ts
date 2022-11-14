@@ -1,17 +1,15 @@
-import { SPRest } from '@pnp/sp';
-import { PageContext } from '@microsoft/sp-page-context';
-import { PnPClientStorage } from '@pnp/common';
+import { PnPClientStorage } from '@pnp/core';
 import { IHubSite } from './IHubSite';
+import '@pnp/sp/search';
 declare const _default: {
     storage: PnPClientStorage;
     /**
      * Get hub site
      *
-     * @param {SPRest} sp Sp
-     * @param {PageContext} pageContext Page context
-     * @param {Date} expire Expire
+     * @param spfxContext - SPFx content
+     * @param expire - Optional, if provided the expiration of the item, otherwise the default (1 year) is used
      */
-    GetHubSite(sp: SPRest, pageContext: PageContext, expire?: Date): Promise<IHubSite>;
+    GetHubSite(spfxContext: any, expire?: Date): Promise<IHubSite>;
 };
 export default _default;
 export { IHubSite };

@@ -1,5 +1,5 @@
-import { Web } from '@pnp/sp';
+import { SPFI } from '@pnp/sp';
 export interface IHubSite {
     url: string;
-    web: Web;
+    sp: SPFI;
 }

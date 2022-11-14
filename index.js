@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -35,33 +36,37 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.IHubSite = void 0;
+var core_1 = require("@pnp/core");
 var sp_1 = require("@pnp/sp");
-var common_1 = require("@pnp/common");
+var IHubSite_1 = require("./IHubSite");
+Object.defineProperty(exports, "IHubSite", { enumerable: true, get: function () { return IHubSite_1.IHubSite; } });
+require("@pnp/sp/search");
 exports.default = new /** @class */ (function () {
     function HubSiteService() {
-        this.storage = new common_1.PnPClientStorage();
+        this.storage = new core_1.PnPClientStorage();
     }
     /**
      * Get hub site
      *
-     * @param {SPRest} sp Sp
-     * @param {PageContext} pageContext Page context
-     * @param {Date} expire Expire
+     * @param spfxContext - SPFx content
+     * @param expire - Optional, if provided the expiration of the item, otherwise the default (1 year) is used
      */
-    HubSiteService.prototype.GetHubSite = function (sp, pageContext, expire) {
-        if (expire === void 0) { expire = common_1.dateAdd(new Date(), 'year', 1); }
+    HubSiteService.prototype.GetHubSite = function (spfxContext, expire) {
+        if (expire === void 0) { expire = (0, core_1.dateAdd)(new Date(), 'year', 1); }
         return __awaiter(this, void 0, void 0, function () {
-            var hubSiteId_1, SiteUrl, error_1, url, err_1;
+            var sp_2, hubSiteId_1, SiteUrl, error_1, url, err_1;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 7, , 8]);
-                        hubSiteId_1 = pageContext.legacyPageContext.hubSiteId || '';
+                        sp_2 = (0, sp_1.spfi)().using((0, sp_1.SPFx)(spfxContext));
+                        hubSiteId_1 = spfxContext.pageContext.legacyPageContext.hubSiteId || '';
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 4, , 5]);
-                        return [4 /*yield*/, fetch(pageContext.web.absoluteUrl + "/_api/HubSites/GetById('" + hubSiteId_1 + "')", {
+                        return [4 /*yield*/, fetch("".concat(spfxContext.pageContext.web.absoluteUrl, "/_api/HubSites/GetById('").concat(hubSiteId_1, "')"), {
                                 method: 'GET',
                                 headers: {
                                     Accept: 'application/jsonodata=nometadata'
@@ -71,16 +76,16 @@ exports.default = new /** @class */ (function () {
                     case 2: return [4 /*yield*/, (_a.sent()).json()];
                     case 3:
                         SiteUrl = (_a.sent()).SiteUrl;
-                        return [2 /*return*/, ({ url: SiteUrl, web: new sp_1.Web(SiteUrl) })];
+                        return [2 /*return*/, { url: SiteUrl, sp: (0, sp_1.spfi)(SiteUrl).using((0, sp_1.SPFx)(spfxContext)) }];
                     case 4:
                         error_1 = _a.sent();
                         return [3 /*break*/, 5];
-                    case 5: return [4 /*yield*/, this.storage.local.getOrPut("hubsite_" + hubSiteId_1.replace(/-/g, '') + "_url", function () { return __awaiter(_this, void 0, void 0, function () {
+                    case 5: return [4 /*yield*/, this.storage.local.getOrPut("hubsite_".concat(hubSiteId_1.replace(/-/g, ''), "_url"), function () { return __awaiter(_this, void 0, void 0, function () {
                             var PrimarySearchResults;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
-                                    case 0: return [4 /*yield*/, sp.search({
-                                            Querytext: "SiteId:" + hubSiteId_1 + " contentclass:STS_Site",
+                                    case 0: return [4 /*yield*/, sp_2.search({
+                                            Querytext: "SiteId:".concat(hubSiteId_1, " contentclass:STS_Site"),
                                             SelectProperties: ['Path'],
                                         })];
                                     case 1:
@@ -91,7 +96,7 @@ exports.default = new /** @class */ (function () {
                         }); }, expire)];
                     case 6:
                         url = _a.sent();
-                        return [2 /*return*/, ({ url: url, web: new sp_1.Web(url) })];
+                        return [2 /*return*/, ({ url: url, sp: (0, sp_1.spfi)(url).using((0, sp_1.SPFx)(spfxContext)) })];
                     case 7:
                         err_1 = _a.sent();
                         throw err_1;

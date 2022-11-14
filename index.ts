@@ -1,7 +1,7 @@
-import { SPRest, Web } from '@pnp/sp'
-import { PageContext } from '@microsoft/sp-page-context'
-import { PnPClientStorage, dateAdd } from '@pnp/common'
+import { dateAdd, PnPClientStorage } from '@pnp/core'
+import { spfi, SPFx } from '@pnp/sp'
 import { IHubSite } from './IHubSite'
+import '@pnp/sp/search'
 
 export default new class HubSiteService {
     storage: PnPClientStorage
@@ -12,22 +12,22 @@ export default new class HubSiteService {
     /**
      * Get hub site
      * 
-     * @param {SPRest} sp Sp
-     * @param {PageContext} pageContext Page context
-     * @param {Date} expire Expire
+     * @param spfxContext - SPFx content
+     * @param expire - Optional, if provided the expiration of the item, otherwise the default (1 year) is used
      */
-    public async GetHubSite(sp: SPRest, pageContext: PageContext, expire: Date = dateAdd(new Date(), 'year', 1)): Promise<IHubSite> {
+    public async GetHubSite(spfxContext: any, expire: Date = dateAdd(new Date(), 'year', 1)): Promise<IHubSite> {
         try {
-            const hubSiteId = pageContext.legacyPageContext.hubSiteId || ''
+            const sp = spfi().using(SPFx(spfxContext))
+            const hubSiteId = spfxContext.pageContext.legacyPageContext.hubSiteId || ''
             try {
-                const { SiteUrl } = await (await fetch(`${pageContext.web.absoluteUrl}/_api/HubSites/GetById('${hubSiteId}')`, {
+                const { SiteUrl } = await (await fetch(`${ spfxContext.pageContext.web.absoluteUrl}/_api/HubSites/GetById('${hubSiteId}')`, {
                     method: 'GET',
                     headers: {
                         Accept: 'application/jsonodata=nometadata'
                     },
                     credentials: 'include',
                 })).json()
-                return ({ url: SiteUrl, web: new Web(SiteUrl) })
+                return { url: SiteUrl, sp: spfi(SiteUrl).using(SPFx(spfxContext)) }
             } catch (error) { }
             const url = await this.storage.local.getOrPut(`hubsite_${hubSiteId.replace(/-/g, '')}_url`, async () => {
                 let { PrimarySearchResults } = await sp.search({
@@ -36,7 +36,7 @@ export default new class HubSiteService {
                 })
                 return PrimarySearchResults[0] ? PrimarySearchResults[0].Path : ''
             }, expire)
-            return ({ url, web: new Web(url) })
+            return ({ url, sp: spfi(url).using(SPFx(spfxContext))  })
         } catch (err) {
             throw err
         }

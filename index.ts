@@ -1,6 +1,6 @@
 import { dateAdd, PnPClientStorage } from '@pnp/core'
 import { spfi, SPFx } from '@pnp/sp'
-import { IHubSite } from './types'
+import { IHubSiteContext } from './types'
 import '@pnp/sp/search'
 
 export default new class HubSiteService {
@@ -15,32 +15,31 @@ export default new class HubSiteService {
      * @param spfxContext - SPFx content
      * @param expire - Optional, if provided the expiration of the item, otherwise the default (1 year) is used
      */
-    public async GetHubSite(spfxContext: any, expire: Date = dateAdd(new Date(), 'year', 1)): Promise<IHubSite> {
+    public async GetHubSite(spfxContext: any, expire: Date = dateAdd(new Date(), 'year', 1)): Promise<IHubSiteContext> {
         try {
-            const sp = spfi().using(SPFx(spfxContext))
+            let sp = spfi().using(SPFx(spfxContext))
             const hubSiteId = spfxContext.pageContext.legacyPageContext.hubSiteId || ''
             try {
-                const { SiteUrl } = await (await fetch(`${ spfxContext.pageContext.web.absoluteUrl}/_api/HubSites/GetById('${hubSiteId}')`, {
+                const { SiteUrl } = await (await fetch(`${spfxContext.pageContext.web.absoluteUrl}/_api/HubSites/GetById('${hubSiteId}')`, {
                     method: 'GET',
                     headers: {
                         Accept: 'application/jsonodata=nometadata'
                     },
                     credentials: 'include',
                 })).json()
-                return { url: SiteUrl, sp: spfi(SiteUrl).using(SPFx(spfxContext)) }
+                sp = spfi(SiteUrl).using(SPFx(spfxContext))
+                return { url: SiteUrl, sp, web: sp.web }
             } catch (error) { }
-            const url = await this.storage.local.getOrPut(`hubsite_${hubSiteId.replace(/-/g, '')}_url`, async () => {
-                let { PrimarySearchResults } = await sp.search({
-                    Querytext: `SiteId:${hubSiteId} contentclass:STS_Site`,
-                    SelectProperties: ['Path'],
-                })
-                return PrimarySearchResults[0] ? PrimarySearchResults[0].Path : ''
-            }, expire)
-            return ({ url, sp: spfi(url).using(SPFx(spfxContext))  })
+            const url = await this.storage.local.getOrPut(`hubsite_${hubSiteId.replace(/-/g, '')}_url`, async () => (await sp.search({
+                Querytext: `SiteId:${hubSiteId} contentclass:STS_Site`,
+                SelectProperties: ['Path'],
+            })).PrimarySearchResults[0]?.Path ?? '', expire)
+            sp = spfi(url).using(SPFx(spfxContext))
+            return { url, sp, web: sp.web }
         } catch (err) {
             throw err
         }
     }
 }
 
-export { IHubSite }
+export * from './types'

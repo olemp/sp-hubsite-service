@@ -1,5 +1,5 @@
 import { PnPClientStorage } from '@pnp/core';
-import { IHubSite } from './types';
+import { IHubSiteContext } from './types';
 import '@pnp/sp/search';
 declare const _default: {
     storage: PnPClientStorage;
@@ -9,7 +9,7 @@ declare const _default: {
      * @param spfxContext - SPFx content
      * @param expire - Optional, if provided the expiration of the item, otherwise the default (1 year) is used
      */
-    GetHubSite(spfxContext: any, expire?: Date): Promise<IHubSite>;
+    GetHubSite(spfxContext: any, expire?: Date): Promise<IHubSiteContext>;
 };
 export default _default;
-export { IHubSite };
+export * from './types';

@@ -1,4 +1,14 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -73,27 +83,27 @@ exports.default = new /** @class */ (function () {
                     case 2: return [4 /*yield*/, (_a.sent()).json()];
                     case 3:
                         SiteUrl = (_a.sent()).SiteUrl;
-                        return [2 /*return*/, { url: SiteUrl, sp: (0, sp_1.spfi)(SiteUrl).using((0, sp_1.SPFx)(spfxContext)) }];
+                        sp_2 = (0, sp_1.spfi)(SiteUrl).using((0, sp_1.SPFx)(spfxContext));
+                        return [2 /*return*/, { url: SiteUrl, sp: sp_2, web: sp_2.web }];
                     case 4:
                         error_1 = _a.sent();
                         return [3 /*break*/, 5];
                     case 5: return [4 /*yield*/, this.storage.local.getOrPut("hubsite_".concat(hubSiteId_1.replace(/-/g, ''), "_url"), function () { return __awaiter(_this, void 0, void 0, function () {
-                            var PrimarySearchResults;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
+                            var _a, _b;
+                            return __generator(this, function (_c) {
+                                switch (_c.label) {
                                     case 0: return [4 /*yield*/, sp_2.search({
                                             Querytext: "SiteId:".concat(hubSiteId_1, " contentclass:STS_Site"),
                                             SelectProperties: ['Path'],
                                         })];
-                                    case 1:
-                                        PrimarySearchResults = (_a.sent()).PrimarySearchResults;
-                                        return [2 /*return*/, PrimarySearchResults[0] ? PrimarySearchResults[0].Path : ''];
+                                    case 1: return [2 /*return*/, (_b = (_a = (_c.sent()).PrimarySearchResults[0]) === null || _a === void 0 ? void 0 : _a.Path) !== null && _b !== void 0 ? _b : ''];
                                 }
                             });
                         }); }, expire)];
                     case 6:
                         url = _a.sent();
-                        return [2 /*return*/, ({ url: url, sp: (0, sp_1.spfi)(url).using((0, sp_1.SPFx)(spfxContext)) })];
+                        sp_2 = (0, sp_1.spfi)(url).using((0, sp_1.SPFx)(spfxContext));
+                        return [2 /*return*/, { url: url, sp: sp_2, web: sp_2.web }];
                     case 7:
                         err_1 = _a.sent();
                         throw err_1;
@@ -104,4 +114,5 @@ exports.default = new /** @class */ (function () {
     };
     return HubSiteService;
 }());
+__exportStar(require("./types"), exports);
 //# sourceMappingURL=index.js.map

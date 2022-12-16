@@ -23,7 +23,7 @@ export default new class HubSiteService {
                 const { SiteUrl } = await (await fetch(`${spfxContext.pageContext.web.absoluteUrl}/_api/HubSites/GetById('${hubSiteId}')`, {
                     method: 'GET',
                     headers: {
-                        Accept: 'application/jsonodata=nometadata'
+                        Accept: 'application/json;odata=nometadata'
                     },
                     credentials: 'include',
                 })).json()
